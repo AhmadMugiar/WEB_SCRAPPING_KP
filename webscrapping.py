@@ -17,9 +17,7 @@ options.add_argument('--disable-gpu')
 driver = webdriver.Chrome(options=options)
 
 # URL lokasi Google Maps
-driver.get("https://www.google.com/maps/place/Kantor+Pos+Batulicin/@-3.4226717,116.0014332,17z/data=!3m1!4b1!4m6!3m5!1s0x2de8b6bfffffffcf:0xa2ec2a0153549309!8m2!3d-3.4226771!4d116.0040135!16s%2Fg%2F1q6cqm68c?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D")
-time.sleep(5)
-
+driver.get("https://www.google.com/maps/place/Kantorpos+Kandangan/@-2.7854936,115.2641575,18z/data=!4m10!1m2!2m1!1sKantor+Pos+di+dekat+Jalan+Merah+Johansyah,+Kandangan+Kota,+Kandangan,+Kabupaten+Hulu+Sungai+Selatan,+Kalimantan+Selatan!3m6!1s0x2de50b24b1c03569:0x22c695338f990c6a!8m2!3d-2.7854936!4d115.2665393!15sCndLYW50b3IgUG9zIGRpIGRla2F0IEphbGFuIE1lcmFoIEpvaGFuc3lhaCwgS2FuZGFuZ2FuIEtvdGEsIEthbmRhbmdhbiwgS2FidXBhdGVuIEh1bHUgU3VuZ2FpIFNlbGF0YW4sIEthbGltYW50YW4gU2VsYXRhbiIDiAEBkgELcG9zdF9vZmZpY2WqAcoBCg0vZy8xMWM1OW50NG4zCgovbS8wOWdnemhnEAEqESINa2FudG9yIHBvcyBkaSgmMh8QASIbam-rAuDgs_ppX0lYIHpYmHS8fUnHT2Qq_TAjMncQAiJza2FudG9yIHBvcyBkaSBkZWthdCBqYWxhbiBtZXJhaCBqb2hhbnN5YWgga2FuZGFuZ2FuIGtvdGEga2FuZGFuZ2FuIGthYnVwYXRlbiBodWx1IHN1bmdhaSBzZWxhdGFuIGthbGltYW50YW4gc2VsYXRhbuABAA!16s%2Fg%2F11b5wmf2wy?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D")
 # Ambil nama tempat
 try:
     place_name = driver.find_element(By.CLASS_NAME, "DUwDvf").text.strip()
@@ -107,7 +105,7 @@ if not os.path.exists("data"):
     os.makedirs("data")
 
 df_maps = pd.DataFrame(reviews_list)
-df_maps.to_csv("Ulasan Google Maps/ULASAN_POS_KCBATULICIN_KALIMANTAN.csv", index=False, encoding="utf-8-sig")
+df_maps.to_csv("Ulasan Google Maps/ULASAN_POS_KCKANDANGAN_KALIMANTAN.csv", index=False, encoding="utf-8-sig")
 print(f'\n✅ DONE: {len(reviews_list)} ulasan berhasil disimpan.')
 
 driver.quit()
