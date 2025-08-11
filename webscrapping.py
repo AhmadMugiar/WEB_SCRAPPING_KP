@@ -17,7 +17,7 @@ options.add_argument('--disable-gpu')
 driver = webdriver.Chrome(options=options)
 
 # URL lokasi Google Maps
-driver.get("https://www.google.com/maps/place/Kantor+Pos+Fatmawati/@-6.2945288,106.7947741,17z/data=!4m16!1m9!3m8!1s0x2e69f19684fb0151:0xb0b69f82cb32571a!2sKantor+Pos+Fatmawati!8m2!3d-6.2945288!4d106.7947741!9m1!1b1!16s%2Fg%2F11dfj2fyrd!3m5!1s0x2e69f19684fb0151:0xb0b69f82cb32571a!8m2!3d-6.2945288!4d106.7947741!16s%2Fg%2F11dfj2fyrd?entry=ttu&g_ep=EgoyMDI1MDgwNS4wIKXMDSoASAFQAw%3D%3D")
+driver.get("https://www.google.com/maps/place/Kantor+Pos+Banjarbaru/@-3.4404911,114.7423452,13z/data=!4m10!1m2!2m1!1sKCU+Pos+BanjarBARU!3m6!1s0x2de68171e5ef9d2b:0x5645719060616bdc!8m2!3d-3.4394242!4d114.8329991!15sChJLQ1UgUG9zIEJhbmphckJBUlVaFCISa2N1IHBvcyBiYW5qYXJiYXJ1kgELcG9zdF9vZmZpY2WaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUklPRTUxWkdGUkVBRaoBUgoIL20vMGRoOHMQASoLIgdrY3UgcG9zKCYyHxABIhsC10eXsbJ_573D2rGAAmKEe4cveGehXrZQXdwyFhACIhJrY3UgcG9zIGJhbmphcmJhcnXgAQD6AQQIABAy!16s%2Fg%2F11b5ymcg9k?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D")
 time.sleep(5)
 
 # Ambil nama tempat
@@ -58,7 +58,7 @@ while len(reviews_list) < 500 and scroll_count < max_scrolls:
         for btn in more_buttons:
             try:
                 driver.execute_script("arguments[0].click();", btn)
-                time.sleep(0.2)
+                time.sleep(2)
             except:
                 continue
     except:
@@ -107,7 +107,7 @@ if not os.path.exists("data"):
     os.makedirs("data")
 
 df_maps = pd.DataFrame(reviews_list)
-df_maps.to_csv("data/ULASAN_POS_JAKARTAFLORA.csv", index=False, encoding="utf-8-sig")
+df_maps.to_csv("Ulasan Google Maps/ULASAN_POS_KCBANJARBARU.csv", index=False, encoding="utf-8-sig")
 print(f'\n✅ DONE: {len(reviews_list)} ulasan berhasil disimpan.')
 
 driver.quit()
