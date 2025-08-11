@@ -17,7 +17,7 @@ options.add_argument('--disable-gpu')
 driver = webdriver.Chrome(options=options)
 
 # URL lokasi Google Maps
-driver.get("https://www.google.com/maps/place/Kantor+Pos+Amuntai/@-2.4188107,115.2448816,16z/data=!4m10!1m2!2m1!1sKantorpos+amuntai!3m6!1s0x2de53963cbe31b51:0x5486a2114433c437!8m2!3d-2.4188107!4d115.2544088!15sChFLYW50b3Jwb3MgYW11bnRhaZIBC3Bvc3Rfb2ZmaWNlqgFKEAEqDSIJa2FudG9ycG9zKCYyIBABIhwssWJnwY_JzD7zyemaO8Kp9gAf3Y9MynBaHMkTMhUQAiIRa2FudG9ycG9zIGFtdW50YWngAQA!16s%2Fg%2F11rz3fw0k1?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D")
+driver.get("https://www.google.com/maps/place/Kantor+Pos+Batulicin/@-3.4226717,116.0014332,17z/data=!3m1!4b1!4m6!3m5!1s0x2de8b6bfffffffcf:0xa2ec2a0153549309!8m2!3d-3.4226771!4d116.0040135!16s%2Fg%2F1q6cqm68c?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D")
 time.sleep(5)
 
 # Ambil nama tempat
@@ -107,7 +107,7 @@ if not os.path.exists("data"):
     os.makedirs("data")
 
 df_maps = pd.DataFrame(reviews_list)
-df_maps.to_csv("Ulasan Google Maps/ULASAN_POS_KCAMUNTAI.csv", index=False, encoding="utf-8-sig")
+df_maps.to_csv("Ulasan Google Maps/ULASAN_POS_KCBATULICIN_KALIMANTAN.csv", index=False, encoding="utf-8-sig")
 print(f'\n✅ DONE: {len(reviews_list)} ulasan berhasil disimpan.')
 
 driver.quit()
