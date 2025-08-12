@@ -17,7 +17,7 @@ options.add_argument('--disable-gpu')
 driver = webdriver.Chrome(options=options)
 
 # URL lokasi Google Maps
-driver.get("https://www.google.com/maps/place/Kantor+Pos+Besar+Yogyakarta/@-7.8016265,110.3460846,15z/data=!4m10!1m2!2m1!1sKANTOR+POS+UTAMA+YOGYAKARTA!3m6!1s0x2e7a57863fffffbd:0xdc60ab5da2435a2d!8m2!3d-7.8016265!4d110.365139!15sChtLQU5UT1IgUE9TIFVUQU1BIFlPR1lBS0FSVEEiA4gBAZIBC3Bvc3Rfb2ZmaWNlqgF-Cg0vZy8xMWM1OW50NG4zCgovbS8wOWdnemhnCggvbS8wZGg4cxABKhQiEGthbnRvciBwb3MgdXRhbWEoJjIeEAEiGmAUz-XyL_xMiVInd_cvr-9jJdwNEI-lSDrZMh8QAiIba2FudG9yIHBvcyB1dGFtYSB5b2d5YWthcnRh4AEA!16s%2Fg%2F1td6_f67?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D")
+driver.get("https://www.google.com/maps/place/Pos+Indonesia+KCU+Semarang/@-6.9701073,110.4215049,17z/data=!3m1!4b1!4m6!3m5!1s0x2e708b5326edf72b:0xbf605fc5d8425bf1!8m2!3d-6.9701126!4d110.4240852!16s%2Fg%2F1hc1934n4?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D")
 # Ambil nama tempat
 try:
     place_name = driver.find_element(By.CLASS_NAME, "DUwDvf").text.strip()
@@ -44,9 +44,9 @@ except:
 
 reviews_list, seen = [], set()
 scroll_count = 0
-max_scrolls = 90
+max_scrolls = 40
 
-while len(reviews_list) < 500 and scroll_count < max_scrolls:
+while len(reviews_list) < 700 and scroll_count < max_scrolls:
     elements = driver.find_elements(By.CSS_SELECTOR, "div.jftiEf")
     print(f"Scroll ke-{scroll_count+1}: {len(elements)} ulasan ditemukan.")
 
@@ -105,7 +105,7 @@ if not os.path.exists("data"):
     os.makedirs("data")
 
 df_maps = pd.DataFrame(reviews_list)
-df_maps.to_csv("Ulasan Google Maps/ULASAN_POS_YOGYAKARTA.csv", index=False, encoding="utf-8-sig")
+df_maps.to_csv("Ulasan Google Maps/ULASAN_POS_SEMARANG.csv", index=False, encoding="utf-8-sig")
 print(f'\n✅ DONE: {len(reviews_list)} ulasan berhasil disimpan.')
 
 driver.quit()
